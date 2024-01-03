@@ -7,6 +7,7 @@ double speed_of_sound = 331.5 + 0.6 * 25; // 25℃の気温の想定
 
 void setup() {
   Serial.begin( 9600 );
+  pinMode(LED_BUILTIN, OUTPUT);  // LED
 
   pinMode(ECHO, INPUT );
   pinMode(TRIG, OUTPUT );
@@ -23,10 +24,11 @@ void loop() {
   if (duration > 0) {
     duration = duration / 2; // 往路にかかった時間
     distance = duration * speed_of_sound * 100 / 1000000;
-  //  Serial.print("Distance:");
+    digitalWrite(LED_BUILTIN, HIGH);
     Serial.println(distance);
   //  Serial.println(" cm");
   }
 
-  delay(200);
+  delay(100);
+  digitalWrite(LED_BUILTIN, LOW); 
 }

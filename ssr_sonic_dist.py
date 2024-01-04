@@ -1,6 +1,4 @@
 import RPi.GPIO as GPIO
-import datetime
-from time import sleep
 import serial
 
 GPIO.setmode(GPIO.BCM)
